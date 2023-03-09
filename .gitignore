@@ -1,0 +1,30 @@
+# Node modules
+node_modules/
+npm-debug.log
+
+# TypeScript generated files
+*.js
+*.js.map
+*.d.ts
+
+# IDE files
+.vscode/
+.idea/
+
+# Build output
+dist/
+
+# Environment variables file
+.env
+
+# Dependencies lock file
+yarn.lock
+package-lock.json
+
+# Editor backups
+*~
+
+combined.log
+error.log
+
+coverage/
