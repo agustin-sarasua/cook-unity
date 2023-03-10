@@ -23,6 +23,7 @@ The code is separated into independent layers (domain, infrastructure and presen
 - create a `.env` file in the root of the project and add your `FIXER_API_KEY=XXXXXXXXXXXXXX`
   
 
+
 # Further Improvements and Next Steps
 
 - Some tests where added as an example but we definitely need more coverage
@@ -35,5 +36,3 @@ The code is separated into independent layers (domain, infrastructure and presen
 - Add integration tests
 - Add docker-compose support for multicontainer setup for both production and for development
 - Add CI/CD pipelines, so every time we push a new change to the repo new images are created and eventually automatically deployed to production (e.g: when we merge/rebase to main/master or every time we create a new tag in the repo)
-
-f
