@@ -1,31 +1,20 @@
-# Use an official Node.js runtime as a parent image
-FROM node:14
+## this is the stage one , also know as the build step
 
-# Set the working directory to /app
+FROM node:12.17.0-alpine
 WORKDIR /app
-
-# Copy the package.json and package-lock.json files to the container
 COPY package*.json ./
-
-COPY tsconfig.json ./
-
-# Install app dependencies
-RUN npm install --only=production
-
-# Install TypeScript
-RUN npm install -g typescript
-
-# Copy the rest of the app source code to the container
 COPY . .
-
-# Build the TypeScript source code
+RUN npm install
 RUN npm run build
 
-# Set the environment variable for the server port
-ENV PORT=3000
+## this is stage two , where the app actually runs
 
-# Expose the port that the app will listen on
-EXPOSE $PORT
+FROM node:12.17.0-alpine
 
-# Start the app by running the compiled JavaScript file
-CMD ["npm", "start"]
+WORKDIR /app
+COPY package*.json ./
+RUN npm install -g ts-node
+RUN npm install --only=production
+COPY --from=0 /app/dist ./dist
+EXPOSE 3000
+CMD npm start
