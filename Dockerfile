@@ -12,6 +12,9 @@ COPY tsconfig.json ./
 # Install app dependencies
 RUN npm install --only=production
 
+# Install TypeScript
+RUN npm install -g typescript
+
 # Copy the rest of the app source code to the container
 COPY . .
 
