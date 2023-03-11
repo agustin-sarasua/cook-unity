@@ -22,7 +22,7 @@ The code is separated into independent layers (domain, infrastructure and presen
 - clone the repo `git clone git@github.com:agustin-sarasua/cook-unity.git`
 - create a `.env` file in the root of the project and add your `FIXER_API_KEY=XXXXXXXXXXXXXX`
 - install docker
-- build docker image: `docker build -t myapp-dev:latest -f Dockerfile.dev .`
+- build docker image: `docker build -t cook-image .`
 - run docker image: `docker run --env-file=.env -it -p 8080:3000 --name cook-container cook-image`
 
 
